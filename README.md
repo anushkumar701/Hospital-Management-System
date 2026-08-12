@@ -6,13 +6,11 @@ A modern, full-featured **Hospital Management System (HMS)** web application bui
 
 ## 🌐 Live Public Access
 
-The application is currently live and publicly accessible over the internet:
+The application is deployed and live on **Vercel**:
 
-- **Public Live URL**: [https://stale-pears-fail.loca.lt](https://stale-pears-fail.loca.lt)
-- **Local Dev Server**: `http://localhost:5173`
-
-> 🔑 **Localtunnel Password (If Prompted)**: `152.57.80.228`  
-> *(If localtunnel asks for "Tunnel Password" or "Endpoint IP", enter `152.57.80.228` and click Submit).*
+- ⚡ **Official Live Production URL**: [https://hospital-management-system-omega-ten-15.vercel.app/](https://hospital-management-system-omega-ten-15.vercel.app/)
+- 🔗 **Alternative Reverse Proxy URL**: [https://stale-pears-fail.loca.lt](https://stale-pears-fail.loca.lt) *(Password: `152.57.80.228`)*
+- 💻 **Local Development Server**: `http://localhost:5173`
 
 ---
 
@@ -62,7 +60,7 @@ Use the following pre-configured demo credentials to access the different portal
 - **Styling**: Tailwind CSS 3
 - **Iconography**: Lucide React
 - **Data Persistence**: HTML5 LocalStorage state engine
-- **Public Hosting**: Vite preview + Localtunnel reverse proxy
+- **Public Hosting**: Vercel (Production Cloud Deployment) / Localtunnel
 
 ---
 
