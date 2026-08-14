@@ -1,7 +1,6 @@
 import React from 'react';
-import { LogOut, User, Building2 as Hospital, Menu, X, RotateCcw } from 'lucide-react';
+import { LogOut, User, Building2 as Hospital, Menu, X } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
-import { resetAllData } from '../../utils/seedData';
 
 interface HeaderProps {
   isMobileMenuOpen?: boolean;
@@ -13,12 +12,6 @@ const Header: React.FC<HeaderProps> = ({ isMobileMenuOpen, onToggleMobileMenu })
 
   const handleLogout = () => {
     logout();
-  };
-
-  const handleResetData = () => {
-    if (window.confirm('Reset all hospital demo data back to default sample records?')) {
-      resetAllData();
-    }
   };
 
   return (
@@ -36,7 +29,10 @@ const Header: React.FC<HeaderProps> = ({ isMobileMenuOpen, onToggleMobileMenu })
               </button>
             )}
             <Hospital className="h-8 w-8 text-blue-600 mr-3" />
-            <h1 className="text-xl font-bold text-gray-900">MediCare Hospital</h1>
+            <div>
+              <h1 className="text-lg sm:text-xl font-bold text-gray-900 leading-tight">Tamil Nadu MediCare Hospital</h1>
+              <p className="text-[10px] text-blue-600 font-semibold tracking-wide hidden sm:block uppercase">Government Recognized Healthcare System • Tamil Nadu</p>
+            </div>
           </div>
           
           {auth.isAuthenticated && (
@@ -50,15 +46,6 @@ const Header: React.FC<HeaderProps> = ({ isMobileMenuOpen, onToggleMobileMenu })
                   {auth.user?.role}
                 </span>
               </div>
-
-              <button
-                onClick={handleResetData}
-                title="Reset Demo Data"
-                className="flex items-center space-x-1 px-2.5 py-1.5 text-xs font-medium text-gray-600 hover:text-blue-700 hover:bg-blue-50 border border-gray-200 rounded-md transition-colors"
-              >
-                <RotateCcw className="h-3.5 w-3.5" />
-                <span className="hidden md:inline">Reset Demo Data</span>
-              </button>
 
               <button
                 onClick={handleLogout}

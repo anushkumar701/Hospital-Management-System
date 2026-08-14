@@ -12,6 +12,7 @@ import {
   getMedicalReports
 } from '../../utils/storage';
 import { Patient, Appointment, User, MedicalReport } from '../../types';
+import InvoicesView from '../Billing/InvoicesView';
 interface ReceptionistDashboardProps {
   activeTab?: string;
   onTabChange?: (tab: string) => void;
@@ -124,6 +125,10 @@ const ReceptionistDashboard: React.FC<ReceptionistDashboardProps> = ({ activeTab
     return (
       <PatientRecords patients={patients} appointments={appointments} />
     );
+  }
+
+  if (currentTab === 'invoices') {
+    return <InvoicesView userRole="receptionist" />;
   }
 
   if (currentTab === 'reports') {

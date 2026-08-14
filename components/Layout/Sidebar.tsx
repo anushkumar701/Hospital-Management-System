@@ -10,6 +10,8 @@ import {
   ClipboardList,
   User,
   Heart,
+  CreditCard,
+  Video,
   X
 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
@@ -38,6 +40,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, onTabChange, isOpen, onClo
           { icon: <Users className="h-5 w-5" />, label: 'User Management', key: 'users' },
           { icon: <UserPlus className="h-5 w-5" />, label: 'Patients Roster', key: 'patients' },
           { icon: <Calendar className="h-5 w-5" />, label: 'Appointments Log', key: 'appointments' },
+          { icon: <CreditCard className="h-5 w-5" />, label: 'Billing & Invoices', key: 'invoices' },
           { icon: <FileText className="h-5 w-5" />, label: 'Medical Reports', key: 'reports' },
         ];
       case 'doctor':
@@ -54,6 +57,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, onTabChange, isOpen, onClo
           { icon: <UserPlus className="h-5 w-5" />, label: 'Register Patient', key: 'register' },
           { icon: <Calendar className="h-5 w-5" />, label: 'Book Appointment', key: 'appointments' },
           { icon: <Users className="h-5 w-5" />, label: 'Patient Records', key: 'patients' },
+          { icon: <CreditCard className="h-5 w-5" />, label: 'Billing & Invoices', key: 'invoices' },
           { icon: <FileText className="h-5 w-5" />, label: 'Upload Reports', key: 'reports' },
         ];
       case 'patient':
@@ -61,6 +65,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, onTabChange, isOpen, onClo
           { icon: <User className="h-5 w-5" />, label: 'My Profile', key: 'profile' },
           { icon: <Calendar className="h-5 w-5" />, label: 'My Appointments', key: 'appointments' },
           { icon: <Pill className="h-5 w-5" />, label: 'My Prescriptions', key: 'prescriptions' },
+          { icon: <CreditCard className="h-5 w-5" />, label: 'Billing & Invoices', key: 'invoices' },
           { icon: <Heart className="h-5 w-5" />, label: 'Medical Reports', key: 'reports' },
         ];
       default:

@@ -1,4 +1,4 @@
-import { Patient, Appointment, Prescription, MedicalReport, User } from '../types';
+import { Patient, Appointment, Prescription, MedicalReport, User, Invoice } from '../types';
 
 // Users
 export const getUsers = (): User[] => {
@@ -104,6 +104,33 @@ export const addMedicalReport = (report: Omit<MedicalReport, 'id' | 'createdAt'>
   return newReport;
 };
 
+// Invoices & Billing
+export const getInvoices = (): Invoice[] => {
+  return JSON.parse(localStorage.getItem('invoices') || '[]');
+};
+
+export const saveInvoices = (invoices: Invoice[]): void => {
+  localStorage.setItem('invoices', JSON.stringify(invoices));
+};
+
+export const addInvoice = (invoice: Omit<Invoice, 'id' | 'createdAt'>): Invoice => {
+  const invoices = getInvoices();
+  const newInvoice: Invoice = {
+    ...invoice,
+    id: 'inv-' + Date.now().toString().slice(-6),
+    createdAt: new Date().toISOString(),
+  };
+  invoices.push(newInvoice);
+  saveInvoices(invoices);
+  return newInvoice;
+};
+
+export const payInvoice = (invoiceId: string): void => {
+  const invoices = getInvoices();
+  const updated = invoices.map(inv => inv.id === invoiceId ? { ...inv, status: 'paid' as const, paidAt: new Date().toISOString() } : inv);
+  saveInvoices(updated);
+};
+
 // CSV Export utilities
 export const exportToCSV = (data: any[], filename: string): void => {
   if (data.length === 0) return;
@@ -113,7 +140,6 @@ export const exportToCSV = (data: any[], filename: string): void => {
     headers.join(','),
     ...data.map(row => headers.map(header => {
       const value = row[header];
-      // Escape commas and quotes in CSV
       if (typeof value === 'string' && (value.includes(',') || value.includes('"'))) {
         return `"${value.replace(/"/g, '""')}"`;
       }

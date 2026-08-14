@@ -3,6 +3,7 @@ import { Users, Calendar, FileText, Plus, Download, Edit2, Trash2, Search, Check
 import { getUsers, saveUsers, getPatients, getAppointments, saveAppointments, getMedicalReports, exportToCSV } from '../../utils/storage';
 import { User, Patient, Appointment, MedicalReport } from '../../types';
 import { useAuth } from '../../contexts/AuthContext';
+import InvoicesView from '../Billing/InvoicesView';
 
 interface AdminDashboardProps {
   activeTab?: string;
@@ -119,6 +120,10 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ activeTab = 'dashboard'
     patient.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
     patient.phone.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  if (activeSection === 'invoices') {
+    return <InvoicesView userRole="admin" />;
+  }
 
   // USERS SECTION
   if (activeSection === 'users') {

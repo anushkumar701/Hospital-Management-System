@@ -12,6 +12,7 @@ import {
   getUsers
 } from '../../utils/storage';
 import { Patient, Appointment, Prescription, MedicalReport, User as UserType } from '../../types';
+import InvoicesView from '../Billing/InvoicesView';
 
 interface PatientDashboardProps {
   activeTab?: string;

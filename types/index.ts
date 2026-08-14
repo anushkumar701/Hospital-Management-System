@@ -36,6 +36,7 @@ export interface Appointment {
   status: 'scheduled' | 'completed' | 'cancelled';
   reason: string;
   notes?: string;
+  meetUrl?: string; // Telehealth video room URL
   createdAt: string;
   createdBy: string; // user id who created the appointment
 }
@@ -69,6 +70,23 @@ export interface MedicalReport {
   fileUrl?: string;
   createdAt: string;
   uploadedBy: string;
+}
+
+export interface InvoiceItem {
+  description: string;
+  amount: number;
+}
+
+export interface Invoice {
+  id: string;
+  patientId: string;
+  appointmentId?: string;
+  items: InvoiceItem[];
+  totalAmount: number;
+  status: 'paid' | 'unpaid' | 'pending';
+  dueDate: string;
+  createdAt: string;
+  paidAt?: string;
 }
 
 export interface AuthState {
