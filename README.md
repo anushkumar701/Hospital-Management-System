@@ -1,149 +1,144 @@
-# 🏥 MediCare - Hospital Management System
+# 🏥 MediCare Super Speciality Hospital System
 
-A modern, full-featured **Hospital Management System (HMS)** web application built with **React**, **TypeScript**, **Vite**, and **Tailwind CSS**. MediCare provides role-based dashboards for **Admins**, **Doctors**, **Receptionists**, and **Patients** to streamline healthcare management, patient registration, appointment scheduling, digital prescriptions, and medical report tracking.
+[![React](https://img.shields.io/badge/React-18.3.1-61DAFB?logo=react)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.5.3-3178C6?logo=typescript)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-5.4.2-646CFF?logo=vite)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.1-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
+[![Deployment Status](https://img.shields.io/badge/Vercel-Deployed-000000?logo=vercel)](https://hospital-management-system-omega-ten-15.vercel.app/)
+
+A production-ready **Private Super Speciality Hospital Management System (HMS)** built with **React**, **TypeScript**, **Vite**, and **Tailwind CSS**. MediCare provides role-based portals for **Admins**, **Doctors**, **Receptionists**, and **Patients** across multi-speciality hospital centres in Tamil Nadu (Chennai, Coimbatore, Madurai, Trichy, Salem).
 
 ---
 
 ## 🌐 Live Public Access
 
-The application is deployed and live on **Vercel**:
+The web application is deployed live on Vercel:
 
-- ⚡ **Official Live Production URL**: [https://hospital-management-system-omega-ten-15.vercel.app/](https://hospital-management-system-omega-ten-15.vercel.app/)
-- 🔗 **Alternative Reverse Proxy URL**: [https://stale-pears-fail.loca.lt](https://stale-pears-fail.loca.lt) *(Password: `152.57.80.228`)*
-- 💻 **Local Development Server**: `http://localhost:5173`
-
----
-
-## 🔑 Login Credentials
-
-Use the following pre-configured demo credentials to access the different portal roles:
-
-| Role | Email Address | Password | Permissions & Capabilities |
-| :--- | :--- | :--- | :--- |
-| **👑 Admin** | `admin@hospital.com` | `admin123` | Full system access, user role management, system analytics, CSV data exports |
-| **🩺 Doctor** | `doctor@hospital.com` | `doctor123` | Patient management, schedule completion, digital prescription issuance, lab report uploads |
-| **📋 Receptionist** | `receptionist@hospital.com` | `receptionist123` | Patient registration, doctor schedule availability check, appointment booking, conflict detection |
-| **👤 Patient** | `patient@hospital.com` | `patient123` | Personal profile, upcoming & past appointments, downloadable prescriptions, medical reports |
+- ⚡ **Official Live Application**: [https://hospital-management-system-omega-ten-15.vercel.app/](https://hospital-management-system-omega-ten-15.vercel.app/)
+- 💻 **Local Development**: `http://localhost:5173`
 
 ---
 
-## ✨ Key Features by Role
+## 🔑 Demo Credentials
 
-### 👑 Admin Portal
-- **Dashboard Analytics**: Real-time counters for total users, registered patients, total appointments, and today's schedule.
-- **User Management**: Create, edit, and remove system users (Doctors, Receptionists, Patients, Admins).
-- **Data Export**: One-click CSV exports for User Records, Patient Databases, and Appointment Logs.
+Use these pre-configured credentials to explore the different role portals:
 
-### 🩺 Doctor Portal
-- **Daily Schedule**: View today's queue and mark appointments as completed.
-- **Patient Roster**: Access complete patient histories and contact details.
-- **Digital Prescriptions**: Create multi-medication digital prescriptions with dosage, frequency, and duration.
-- **Medical Reports**: Upload consultation reports and lab test results directly to patient profiles.
+| Role | Email Address | Password | Hospital Hub / Specialty | Key Capabilities |
+| :--- | :--- | :--- | :--- | :--- |
+| **👑 Admin** | `admin@hospital.com` | `admin123` | Hospital Executive Office | User management, revenue analytics, CSV data exports |
+| **🩺 Doctor (Cardiology)** | `doctor@hospital.com` | `doctor123` | Dr. K. Arumugam *(Chennai)* | Appointments queue, digital prescriptions, lab reports |
+| **🩺 Doctor (Neurology)** | `doctor2@hospital.com` | `doctor123` | Dr. S. Meenakshi *(Madurai)* | Neurological consultations, patient medical records |
+| **🩺 Doctor (Pediatrics)** | `doctor3@hospital.com` | `doctor123` | Dr. R. Karthikeyan *(Coimbatore)* | Pediatric checkups, vaccination tracking |
+| **🩺 Doctor (Orthopedics)** | `doctor4@hospital.com` | `doctor123` | Dr. V. Sundaram *(Trichy)* | Joint evaluations, mobility checkups |
+| **📋 Receptionist** | `receptionist@hospital.com` | `receptionist123` | Deepa Anbarasan *(Chennai Hub)* | Patient registration, smart booking with conflict check |
+| **👤 Patient** | `patient@hospital.com` | `patient123` | M. Anandkumar *(Chennai)* | Self-service booking, Telehealth links, Invoices & Prescriptions |
 
-### 📋 Receptionist Portal
-- **Patient Onboarding**: Register new patients with medical history, emergency contacts, and demographic details.
-- **Smart Appointment Booking**: Real-time doctor availability check preventing overlapping booking conflicts.
-- **Record Search**: Instant search filter across patient records by name, email, or phone number.
+---
 
-### 👤 Patient Portal
-- **Personal Health Hub**: View demographics, emergency contact info, and medical history.
-- **Appointment Tracker**: Monitor upcoming visits and review historical consultations.
-- **Downloadable Prescriptions**: Download digital prescriptions formatted as printable document files (`.txt`).
-- **Lab & Imaging Reports**: Access medical reports uploaded by attending physicians.
+## ✨ Core Features & Modules
+
+### 💳 1. Healthcare Billing & Invoices (INR ₹)
+- **Revenue Analytics**: Track total collected revenue, unpaid balances, and invoice counts.
+- **Invoice Generation**: Create line-item billing statements with custom services and due dates.
+- **Payment Collection**: Mark invoices as paid with automatic timestamp recording.
+- **Patient Billing Portal**: Patients can view their billing statements, line items, and payment status in Indian Rupees (₹).
+- **Financial Export**: Export all billing and invoice data directly to CSV.
+
+### 🎥 2. Telehealth & Video Consultations
+- **Virtual Appointments**: Web-based video consultation meeting links (Jitsi integration) embedded into appointment schedules.
+- **One-Click Join**: Patients and doctors can join secure video rooms directly from their appointment tables.
+
+### 📅 3. Patient Self-Service & Booking
+- **Direct Appointment Booking**: Patients can schedule consultations by choosing doctors, preferred date/time slots, and visit reasons.
+- **Conflict Prevention**: Built-in scheduling conflict detector prevents double-booking doctors.
+- **Cancellation Management**: Patients can cancel upcoming visits directly with automatic status updates.
+
+### 📜 4. Digital Prescriptions & Medical Reports
+- **Multi-Medication Issuance**: Doctors create digital prescriptions with detailed dosages, intake frequency, and instructions.
+- **Dynamic Text Export**: Prescriptions export as formatted, printable `.txt` documents.
+- **Lab & Radiology Reports**: Upload and view ECG, X-Ray, Echo, and MRI diagnostic reports.
+
+### 🔔 5. Modern UI & Toast Notifications
+- Clean micro-animations, glassmorphism card designs, and fully responsive layouts.
+- Non-intrusive floating toast notifications for user action feedback.
 
 ---
 
 ## 🛠️ Technology Stack
 
-- **Frontend Framework**: React 18 (TypeScript)
-- **Build Tool**: Vite 5
-- **Styling**: Tailwind CSS 3
+- **Frontend Core**: React 18 with TypeScript
+- **Build Engine**: Vite 5
+- **Styling**: Vanilla CSS3 + Tailwind CSS 3
 - **Iconography**: Lucide React
-- **Data Persistence**: HTML5 LocalStorage state engine
-- **Public Hosting**: Vercel (Production Cloud Deployment) / Localtunnel
+- **Data Persistence**: Client-side HTML5 LocalStorage state engine
+- **Cloud Hosting**: Vercel CI/CD Production Pipeline
 
 ---
 
-## 🚀 Local Installation & Setup
-
-Follow these steps to run MediCare locally on your machine:
+## 🚀 Quick Start (Local Setup)
 
 ### 1. Prerequisites
-Ensure you have **Node.js** (v18 or higher) and **npm** installed.
-
+Ensure **Node.js** (v18+) and **npm** are installed:
 ```bash
 node -v
 npm -v
 ```
 
-### 2. Install Dependencies
-Navigate to the project root directory and run:
-
+### 2. Installation
+Clone the repository and install dependencies:
 ```bash
+git clone https://github.com/anushkumar701/Hospital-Management-System.git
+cd Hospital-Management-System
 npm install
 ```
 
-### 3. Start Development Server
-
+### 3. Start Local Dev Server
 ```bash
 npm run dev
 ```
-Open `http://localhost:5173` in your browser.
+Open `http://localhost:5173` in your web browser.
 
-### 4. Build for Production
-
+### 4. Build & Preview Production Bundle
 ```bash
 npm run build
-```
-
-### 5. Preview Production Build
-
-```bash
 npm run preview
 ```
-Serves the optimized build at `http://localhost:5173`.
-
-### 6. Make Publicly Accessible
-
-To expose your local instance to the web:
-
-```bash
-npx localtunnel --port 5173
-```
 
 ---
 
-## 📁 Project Directory Structure
+## 📁 Directory Architecture
 
 ```text
-Hospital Management/
+Hospital-Management-System/
 ├── components/
 │   ├── Auth/
-│   │   └── LoginForm.tsx           # Login form with quick demo role selectors
+│   │   └── LoginForm.tsx           # Login screen with quick-fill demo buttons
+│   ├── Billing/
+│   │   └── InvoicesView.tsx        # Hospital billing, payments & invoice generator
 │   ├── Dashboard/
-│   │   ├── AdminDashboard.tsx      # User management & system analytics
+│   │   ├── AdminDashboard.tsx      # User management & analytics
 │   │   ├── DashboardContainer.tsx  # Dynamic dashboard router
-│   │   ├── DoctorDashboard.tsx     # Appointments, prescriptions & reports
-│   │   ├── PatientDashboard.tsx    # Patient profile & document downloads
-│   │   └── ReceptionistDashboard.tsx # Registration & smart booking
+│   │   ├── DoctorDashboard.tsx     # Appointments, prescriptions & lab reports
+│   │   ├── PatientDashboard.tsx    # Self-service booking, invoices & profile
+│   │   └── ReceptionistDashboard.tsx # Patient registration & scheduling
 │   └── Layout/
-│       ├── Header.tsx              # Navigation bar with user status & logout
-│       └── Sidebar.tsx             # Role-aware navigation sidebar
+│       ├── Header.tsx              # Private hospital header & session navigation
+│       └── Sidebar.tsx             # Role-aware navigation drawer
 ├── contexts/
-│   └── AuthContext.tsx             # Auth state provider & seed data initializer
+│   ├── AuthContext.tsx             # Authentication provider
+│   └── ToastContext.tsx            # Floating toast notification system
 ├── types/
-│   └── index.ts                    # TypeScript interfaces & models
+│   └── index.ts                    # TypeScript interfaces (Invoice, Patient, etc.)
 ├── utils/
-│   └── storage.ts                  # LocalStorage helper functions & CSV export
-├── App.tsx                         # Main app wrapper
-├── main.tsx                        # Entry point
-├── index.html                      # HTML root template
-├── vite.config.ts                  # Vite build configuration
-└── package.json                    # Project metadata & dependencies
+│   ├── seedData.ts                 # Tamil Nadu hospital sample dataset
+│   └── storage.ts                  # LocalStorage state engine & CSV exporter
+├── App.tsx                         # Primary application container
+├── main.tsx                        # Application DOM entry point
+└── package.json                    # Dependencies & build scripts
 ```
 
 ---
 
-## 🛡️ License
+## 📄 License
 
-This project is licensed under the MIT License - feel free to use and customize for your healthcare organization or portfolio.
+This project is open-source under the [MIT License](LICENSE).
