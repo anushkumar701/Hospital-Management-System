@@ -362,3 +362,12 @@ export const initializeSeedData = (): void => {
     localStorage.setItem('medicalReports', JSON.stringify(defaultReports));
   }
 };
+
+export const resetAllData = (): void => {
+  localStorage.setItem('users', JSON.stringify(defaultUsers));
+  localStorage.setItem('patients', JSON.stringify(defaultPatients));
+  localStorage.setItem('appointments', JSON.stringify(defaultAppointments));
+  localStorage.setItem('prescriptions', JSON.stringify(defaultPrescriptions));
+  localStorage.setItem('medicalReports', JSON.stringify(defaultReports));
+  window.location.reload();
+};

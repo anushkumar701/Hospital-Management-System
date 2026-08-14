@@ -1,6 +1,7 @@
 import React from 'react';
-import { LogOut, User, Building2 as Hospital, Menu, X } from 'lucide-react';
+import { LogOut, User, Building2 as Hospital, Menu, X, RotateCcw } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
+import { resetAllData } from '../../utils/seedData';
 
 interface HeaderProps {
   isMobileMenuOpen?: boolean;
@@ -12,6 +13,12 @@ const Header: React.FC<HeaderProps> = ({ isMobileMenuOpen, onToggleMobileMenu })
 
   const handleLogout = () => {
     logout();
+  };
+
+  const handleResetData = () => {
+    if (window.confirm('Reset all hospital demo data back to default sample records?')) {
+      resetAllData();
+    }
   };
 
   return (
@@ -43,6 +50,16 @@ const Header: React.FC<HeaderProps> = ({ isMobileMenuOpen, onToggleMobileMenu })
                   {auth.user?.role}
                 </span>
               </div>
+
+              <button
+                onClick={handleResetData}
+                title="Reset Demo Data"
+                className="flex items-center space-x-1 px-2.5 py-1.5 text-xs font-medium text-gray-600 hover:text-blue-700 hover:bg-blue-50 border border-gray-200 rounded-md transition-colors"
+              >
+                <RotateCcw className="h-3.5 w-3.5" />
+                <span className="hidden md:inline">Reset Demo Data</span>
+              </button>
+
               <button
                 onClick={handleLogout}
                 className="flex items-center space-x-1 px-3 py-2 text-sm font-medium text-gray-700 hover:text-red-600 hover:bg-red-50 rounded-md transition-colors"
