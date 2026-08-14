@@ -9,10 +9,23 @@ import {
   getUsers
 } from '../../utils/storage';
 import { Patient, Appointment, Prescription, MedicalReport, User as UserType } from '../../types';
+interface PatientDashboardProps {
+  activeTab?: string;
+  onTabChange?: (tab: string) => void;
+}
 
-const PatientDashboard: React.FC = () => {
+const PatientDashboard: React.FC<PatientDashboardProps> = ({ activeTab = 'profile', onTabChange }) => {
   const { auth } = useAuth();
-  const [activeTab, setActiveTab] = useState('profile');
+  const [currentTab, setCurrentTab] = useState(activeTab);
+
+  useEffect(() => {
+    setCurrentTab(activeTab);
+  }, [activeTab]);
+
+  const setActiveTab = (tab: string) => {
+    setCurrentTab(tab);
+    if (onTabChange) onTabChange(tab);
+  };
   const [patient, setPatient] = useState<Patient | null>(null);
   const [appointments, setAppointments] = useState<Appointment[]>([]);
   const [prescriptions, setPrescriptions] = useState<Prescription[]>([]);

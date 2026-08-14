@@ -12,10 +12,23 @@ import {
   getMedicalReports
 } from '../../utils/storage';
 import { Patient, Appointment, User, MedicalReport } from '../../types';
+interface ReceptionistDashboardProps {
+  activeTab?: string;
+  onTabChange?: (tab: string) => void;
+}
 
-const ReceptionistDashboard: React.FC = () => {
+const ReceptionistDashboard: React.FC<ReceptionistDashboardProps> = ({ activeTab = 'dashboard', onTabChange }) => {
   const { auth } = useAuth();
-  const [activeTab, setActiveTab] = useState('dashboard');
+  const [currentTab, setCurrentTab] = useState(activeTab);
+
+  useEffect(() => {
+    setCurrentTab(activeTab);
+  }, [activeTab]);
+
+  const setActiveTab = (tab: string) => {
+    setCurrentTab(tab);
+    if (onTabChange) onTabChange(tab);
+  };
   const [patients, setPatients] = useState<Patient[]>([]);
   const [appointments, setAppointments] = useState<Appointment[]>([]);
   const [doctors, setDoctors] = useState<User[]>([]);
@@ -84,7 +97,7 @@ const ReceptionistDashboard: React.FC = () => {
     setShowReportForm(false);
   };
 
-  if (activeTab === 'register') {
+  if (currentTab === 'register') {
     return (
       <PatientRegistration
         onAddPatient={handleAddPatient}
@@ -94,7 +107,7 @@ const ReceptionistDashboard: React.FC = () => {
     );
   }
 
-  if (activeTab === 'appointments') {
+  if (currentTab === 'appointments') {
     return (
       <AppointmentBooking
         patients={patients}
@@ -107,13 +120,13 @@ const ReceptionistDashboard: React.FC = () => {
     );
   }
 
-  if (activeTab === 'patients') {
+  if (currentTab === 'patients') {
     return (
       <PatientRecords patients={patients} appointments={appointments} />
     );
   }
 
-  if (activeTab === 'reports') {
+  if (currentTab === 'reports') {
     return (
       <ReportUpload
         patients={patients}

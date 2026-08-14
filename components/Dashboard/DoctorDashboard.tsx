@@ -12,10 +12,23 @@ import {
   saveAppointments
 } from '../../utils/storage';
 import { Appointment, Patient, Prescription, MedicalReport } from '../../types';
+interface DoctorDashboardProps {
+  activeTab?: string;
+  onTabChange?: (tab: string) => void;
+}
 
-const DoctorDashboard: React.FC = () => {
+const DoctorDashboard: React.FC<DoctorDashboardProps> = ({ activeTab = 'dashboard', onTabChange }) => {
   const { auth } = useAuth();
-  const [activeTab, setActiveTab] = useState('dashboard');
+  const [currentTab, setCurrentTab] = useState(activeTab);
+
+  useEffect(() => {
+    setCurrentTab(activeTab);
+  }, [activeTab]);
+
+  const setActiveTab = (tab: string) => {
+    setCurrentTab(tab);
+    if (onTabChange) onTabChange(tab);
+  };
   const [appointments, setAppointments] = useState<Appointment[]>([]);
   const [patients, setPatients] = useState<Patient[]>([]);
   const [prescriptions, setPrescriptions] = useState<Prescription[]>([]);
@@ -102,7 +115,7 @@ const DoctorDashboard: React.FC = () => {
     exportToCSV(patientData, 'doctor_patients');
   };
 
-  if (activeTab === 'appointments') {
+  if (currentTab === 'appointments') {
     return (
       <AppointmentsView 
         appointments={appointments}
@@ -112,7 +125,7 @@ const DoctorDashboard: React.FC = () => {
     );
   }
 
-  if (activeTab === 'patients') {
+  if (currentTab === 'patients') {
     return (
       <PatientsView 
         patients={patients}
@@ -122,7 +135,7 @@ const DoctorDashboard: React.FC = () => {
     );
   }
 
-  if (activeTab === 'prescriptions') {
+  if (currentTab === 'prescriptions') {
     return (
       <PrescriptionsView
         prescriptions={prescriptions}
@@ -136,7 +149,7 @@ const DoctorDashboard: React.FC = () => {
     );
   }
 
-  if (activeTab === 'reports') {
+  if (currentTab === 'reports') {
     return (
       <ReportsView
         reports={reports}

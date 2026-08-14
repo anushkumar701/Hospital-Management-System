@@ -62,8 +62,10 @@ export interface MedicalReport {
   patientId: string;
   doctorId?: string;
   title: string;
-  description: string;
-  reportType: 'lab' | 'imaging' | 'consultation' | 'other';
+  description?: string;
+  notes?: string;
+  reportType?: 'lab' | 'imaging' | 'consultation' | 'other' | string;
+  type?: string;
   fileUrl?: string;
   createdAt: string;
   uploadedBy: string;
