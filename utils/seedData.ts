@@ -6,7 +6,7 @@ export const defaultUsers: User[] = [
     email: 'admin@hospital.com',
     password: 'admin123',
     role: 'admin',
-    name: 'TN Hospital Administrator',
+    name: 'MediCare Hospital Administrator',
     phone: '+91-94440-12345',
     createdAt: new Date().toISOString(),
   },
@@ -273,7 +273,7 @@ export const defaultPrescriptions: Prescription[] = [
       { name: 'Telmisartan', dosage: '40mg', frequency: 'Once daily (Morning after food)', duration: '30 days' },
       { name: 'Pantoprazole', dosage: '40mg', frequency: 'Once daily (Before breakfast)', duration: '15 days' }
     ],
-    instructions: 'Maintain low salt diet. Avoid oily foods and track blood pressure weekly at nearest TN E-Sevai clinic.',
+    instructions: 'Maintain low salt diet. Avoid oily foods and track blood pressure weekly at nearest MediCare clinic.',
     createdAt: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString(),
   },
   {

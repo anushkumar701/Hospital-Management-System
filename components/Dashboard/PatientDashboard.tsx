@@ -166,6 +166,15 @@ Generated automatically by MediCare Hospital Management System
     );
   }
 
+  if (currentTab === 'invoices') {
+    return (
+      <InvoicesView
+        userRole="patient"
+        patientEmail={auth.user?.email}
+      />
+    );
+  }
+
   if (currentTab === 'reports') {
     return (
       <ReportsView

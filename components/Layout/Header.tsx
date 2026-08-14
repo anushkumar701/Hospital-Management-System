@@ -30,8 +30,8 @@ const Header: React.FC<HeaderProps> = ({ isMobileMenuOpen, onToggleMobileMenu })
             )}
             <Hospital className="h-8 w-8 text-blue-600 mr-3" />
             <div>
-              <h1 className="text-lg sm:text-xl font-bold text-gray-900 leading-tight">Tamil Nadu MediCare Hospital</h1>
-              <p className="text-[10px] text-blue-600 font-semibold tracking-wide hidden sm:block uppercase">Government Recognized Healthcare System • Tamil Nadu</p>
+              <h1 className="text-lg sm:text-xl font-bold text-gray-900 leading-tight">MediCare Super Speciality Hospital</h1>
+              <p className="text-[10px] text-blue-600 font-semibold tracking-wide hidden sm:block uppercase">Premier Private Healthcare • Tamil Nadu Centres</p>
             </div>
           </div>
           
